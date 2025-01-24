@@ -1,0 +1,41 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          registry-url: https://npm.pkg.github.com/
+          node-version: 14.x
+          cache: 'yarn'
+
+      - name: Install
+        run: |
+          yarn install --frozen-lockfile --non-interactive
+        #yarn grunt package
+
+      - name: Linting
+        run: |
+          yarn grunt ci-checks
+          yarn grunt validate-angular-files
+
+      - name: Unit Testing
+        run: |
+          yarn grunt test:promises-aplus
+          yarn grunt test:jqlite --browsers=FirefoxHeadless --reporters=spec
+          yarn grunt test:modules --browsers=FirefoxHeadless --reporters=spec
+          yarn grunt test:modules --browsers=FirefoxHeadless --reporters=spec
+          yarn grunt test:docs --browsers=FirefoxHeadless --reporters=spec
+          yarn grunt test:jquery --browsers=FirefoxHeadless --reporters=spec
+          yarn grunt test:jquery-2.2 --browsers=FirefoxHeadless --reporters=spec
+          yarn grunt test:jquery-2.1 --browsers=FirefoxHeadless --reporters=spec
