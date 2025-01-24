@@ -1,12 +1,22 @@
 {
-  "name": "angular",
+  "name": "@detrist/angular",
   "license": "MIT",
   "branchVersion": "^1.8.0",
   "branchPattern": "1.8.*",
   "distTag": "next",
+  "author": "detrist",
+  "version": "1.8.4",
+  "homepage": "https://github.com/detrist/angular.js#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/angular/angular.js.git"
+    "url": "https://github.com/detrist/angular.js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/detrist/angular.js/issues"
+  },
+  "publishConfig": {
+    "access": "public",
+    "@detrist:registry": "https://npm.pkg.github.com"
   },
   "engines": {
     "node": ">=12.14.1",
