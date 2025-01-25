@@ -39,7 +39,7 @@
     "cheerio": "^0.17.0",
     "commitizen": "^4.2.4",
     "commitplease": "^2.7.10",
-    "cross-spawn": "^4.0.0",
+    "cross-spawn": "^6.0.6",
     "cz-conventional-changelog": "1.1.4",
     "dgeni": "^0.4.9",
     "dgeni-packages": "^0.26.5",
